@@ -5,7 +5,7 @@ import { CardComponent as Card } from "../../components/Card/Card";
 export default function HomePage() {
   return (
     <div>
-      <section className="hero text-white py-20 px-8 text-center bg-gradient-to-tr from-indigo-400 via-violet-600 to-cyan-400">
+      <section className="hero text-white py-20 px-8 text-center bg-gradient-to-tr from-indigo-500 via-purple-600 to-cyan-500">
         <h1 className="text-4xl lg:text-6xl font-bold leading-tight mb-4">
           Welcome to My Website
         </h1>
@@ -24,11 +24,11 @@ export default function HomePage() {
       </section>
 
       <section id="about" className="about py-16 px-8 bg-gray-100">
-        <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-center">
+        <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-center text-gray-800">
           About Us
         </h2>
 
-        <p className="text-lg mb-6 text-center">
+        <p className="text-lg mb-6 text-center text-gray-700">
           We are dedicated to delivering exceptional experiences through our
           innovative solutions and services. Our team is committed to creating
           valuable and impactful content that resonates with our audience.
@@ -44,7 +44,7 @@ export default function HomePage() {
       </section>
 
       <section id="features" className="features py-16 px-8">
-        <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">
           Our Features
         </h2>
 
@@ -52,7 +52,7 @@ export default function HomePage() {
           <Card>
             <h3 className="text-xl font-semibold mb-4">Feature One</h3>
 
-            <p>
+            <p className="text-gray-700">
               Description of feature one. Highlight its key aspects and how it
               benefits the user.
             </p>
@@ -61,7 +61,7 @@ export default function HomePage() {
           <Card>
             <h3 className="text-xl font-semibold mb-4">Feature Two</h3>
 
-            <p>
+            <p className="text-gray-700">
               Description of feature two. Focus on its advantages and unique
               selling points.
             </p>
@@ -70,7 +70,7 @@ export default function HomePage() {
           <Card>
             <h3 className="text-xl font-semibold mb-4">Feature Three</h3>
 
-            <p>
+            <p className="text-gray-700">
               Description of feature three. Explain its benefits and what makes
               it stand out.
             </p>
@@ -82,7 +82,7 @@ export default function HomePage() {
         id="testimonials"
         className="testimonials py-16 px-8 bg-gray-100"
       >
-        <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center">
+        <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-center text-gray-800">
           What Our Users Say
         </h2>
 

@@ -4,6 +4,7 @@ import LineGraph from "./pages/LineChart/LineChart";
 import Products from "./pages/Products/Products";
 import Header from "./components/Header/Header";
 import NotFound from "./pages/NotFound/NotFound";
+import Footer from "./components/Footer/Footer";
 
 function App() {
   const navLink = [
@@ -12,13 +13,11 @@ function App() {
       title: "Home",
       href: "/",
     },
-
     {
       id: 2,
       title: "Line-Chart",
       href: "/line-chart",
     },
-
     {
       id: 3,
       title: "Products",
@@ -27,10 +26,11 @@ function App() {
   ];
 
   return (
-    <>
-      <Router>
+    <Router>
+      <div className="flex flex-col min-h-screen">
         <Header navLink={navLink} />
-        <main className="px-4 md:px-8 mt-10">
+
+        <main className="flex-grow px-4 md:px-8 mt-10">
           <Routes>
             <Route path="/" element={<HomePage />} />
             <Route path="/line-chart" element={<LineGraph />} />
@@ -38,8 +38,10 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
-      </Router>
-    </>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
