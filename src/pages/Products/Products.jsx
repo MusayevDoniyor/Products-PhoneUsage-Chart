@@ -1,19 +1,30 @@
 import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Carousel } from "flowbite-react";
-import CarouselTheme from "../../components/CustomCarousel/CarouselTheme";
+import { Alert, Carousel, Spinner } from "flowbite-react";
+import CarouselTheme from "../../components/CustomStyles/CarouselTheme";
 import { CardComponent } from "../../components/Card/Card";
+import { Link } from "react-router-dom";
+import api from "../../api/api";
+import { HiInformationCircle } from "react-icons/hi";
+import SpinnerTheme from "../../components/CustomStyles/SpinnerTheme";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchProducts = async () => {
+      setError(null);
+
       try {
-        const response = await axios.get("https://fakestoreapi.com/products");
+        const response = await api.get("/products");
+
         setProducts(response.data);
       } catch (error) {
         console.error("Error fetching the products", error);
+        setError(error.message);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -24,6 +35,20 @@ const Products = () => {
   for (let i = 0; i < products.length; i += 4) {
     groupedProducts.push(products.slice(i, i + 4));
   }
+
+  if (loading)
+    return (
+      <section className="flex justify-center items-center h-screen">
+        <Spinner theme={SpinnerTheme} size="2xl" />
+      </section>
+    );
+
+  if (error)
+    return (
+      <Alert color="failure" icon={HiInformationCircle}>
+        <span className="text-lg font-medium">{error}</span>
+      </Alert>
+    );
 
   return (
     <section className="w-full min-h-screen bg-gray-100 py-8">
@@ -36,7 +61,7 @@ const Products = () => {
           {groupedProducts.map((group, index) => (
             <div
               key={index}
-              className="flex space-x-4 justify-center items-center bg-white p-4 rounded-lg shadow-md"
+              className="flex flex-col gap-2 lg:flex-row space-x-4 justify-center items-center bg-white p-4 rounded-lg shadow-md"
             >
               {group.map((product) => (
                 <CardComponent
@@ -50,7 +75,12 @@ const Products = () => {
                   />
 
                   <h2 className="text-base font-bold mb-2 h-32">
-                    {product.title}
+                    <Link
+                      className="hover:text-blue-500 transition-colors"
+                      to={`/products/${product.id}`}
+                    >
+                      {product.title}
+                    </Link>
                   </h2>
 
                   <p className="text-lg text-[#333]">

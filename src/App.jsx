@@ -5,6 +5,7 @@ import Products from "./pages/Products/Products";
 import Header from "./components/Header/Header";
 import NotFound from "./pages/NotFound/NotFound";
 import Footer from "./components/Footer/Footer";
+import SingleProduct from "./pages/SingleProduct/SingleProduct";
 
 function App() {
   const navLink = [
@@ -35,6 +36,7 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/line-chart" element={<LineGraph />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:id" element={<SingleProduct />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
