@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import api from "../../api/api";
-import { Alert, Spinner } from "flowbite-react";
+import { Alert, Button, Spinner } from "flowbite-react";
 import { HiInformationCircle } from "react-icons/hi";
 import SpinnerTheme from "../../components/CustomStyles/SpinnerTheme";
 
@@ -80,6 +80,12 @@ export default function SingleProduct() {
               </span>
             </div>
           </div>
+
+          <Button className="mt-2 bg-blue-500 hover:bg-blue-600 text-white">
+            <Link to="/products" className="no-underline">
+              Back
+            </Link>
+          </Button>
         </div>
       </section>
     );
